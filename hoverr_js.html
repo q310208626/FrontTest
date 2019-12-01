@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .box{
+        width: 200px;
+        height: 40px;
+        margin: 20px auto;
+        border: 1px solid orangered;
+        text-align: center;
+        line-height: 40px;
+        position:relative;
+        cursor: pointer;
+    }
+
+    .box .detail{
+        position: absolute;
+        width: 400px;
+        height: 100px;
+        border: 1px solid orangered;
+        right: -1px;
+        display: none;
+        z-index: -1;
+    }
+</style>
+<body>
+    <div id="box" class="box">
+        <span>购物车</span>
+        <div id="detail" class="detail">
+
+        </div>
+    </div>
+</body>
+<script>
+    let box = document.getElementById('box');
+    let detail = document.getElementById('detail');
+    box.onmouseover = function(){
+        detail.style.display = 'block';
+        box.style.borderBottomColor = 'white';
+    };
+
+    box.onmouseleave = function(){
+        detail.style.display = 'none';
+        box.style.borderBottomColor = 'orangered';
+    };
+</script>
+</html>

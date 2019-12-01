@@ -1,22 +1,15 @@
-let person = {name:"lin",age:"25"};
-console.log(person.name);
-Object.defineProperty(person,"sex",{
-    value:"male",
-    writable:true,
-    configurable:true
-});
-person.sex = "female";
-console.log(person.name);
-console.log(person.sex);
-delete person.sex;
-console.log(person.sex);
+for(a =0 ;a<10;a++){
+    if(a>=2){
+        a+=2;
+        continue;
+    }
 
-Object.defineProperty(person,"sex",{
-    value:"male",
-    writable:true,
-    configurable:true
-});
+    if(a>=6){
+        a--;
+        break;
+    }
 
-person.sex = "asda";
-console.log(person.name);
-console.log(person.sex);
+    a++
+    console.log(a);
+}
+console.log(a);

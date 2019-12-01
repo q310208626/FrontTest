@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表奇偶变色</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+
+        #oddEvenUl{
+            box-sizing: border-box;
+            margin: 20px auto;
+            border: 1px solid #adadad;
+            width: 400px;
+            height: 250px;
+            padding: 10px;
+        }
+        #oddEvenUl li{
+            text-align: center;
+            line-height: 40px;
+            border-bottom: 1px dashed #ffa18a;
+            cursor: pointer;
+        }
+        #oddEvenUl li:nth-last-child(1){
+            border-bottom:none;
+        }
+        /* CSS实现 */
+        /* #oddEvenUl li:nth-child(n+4){
+            background-color: antiquewhite;
+        } */
+    </style>
+</head>
+<body>
+    <ul id="oddEvenUl">
+        <li>第1行列表</li>
+        <li>第2行列表</li>
+        <li>第3行列表</li>
+        <li>第4行列表</li>  
+        <li>第5行列表</li>
+    </ul>
+</body>
+<script>
+    let oddEvenUl = document.getElementById('oddEvenUl');
+    let oddEvenli = document.getElementsByTagName('li');
+    if(null != oddEvenli){
+        for (let liIndex = 0; liIndex < oddEvenli.length; liIndex++) {
+            const element = oddEvenli[liIndex];
+            if( liIndex%2 == 0){
+                element.style.backgroundColor = 'antiquewhite';
+
+                element.onmouseover = function(){
+                    element.style.backgroundColor = '#c9c5c4';
+                }
+
+                element.onmouseleave = function(){
+                    element.style.backgroundColor = 'antiquewhite';
+                }
+            }else{
+                element.style.backgroundColor = 'white';
+
+                element.onmouseover = function(){
+                    element.style.backgroundColor = '#c9c5c4';
+                }
+
+                element.onmouseleave = function(){
+                    element.style.backgroundColor = 'white';
+                }
+            }
+            
+        }
+    }
+</script>
+</html>
