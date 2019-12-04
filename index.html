@@ -7,7 +7,31 @@
     <script src="./javascript/index.js"></script>
     <title>测试页面</title>
 </head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+</style>
 <body>
-    
+    <input type="text" id="name">
+    <button id="name_button">提交</button>
+    <button id="thisButton">thisButton</button>
 </body>
+    <script>
+        document.getElementById('name_button').onclick = function(e){
+            console.log(this.id);
+        }
+        
+
+        function bFunc(){
+            return this;
+        }
+        console.log(bFunc());
+
+        function cFunc(){
+            console.log(this.id);
+        }
+        document.getElementById("thisButton").onclick = cFunc;
+    </script>
 </html>
