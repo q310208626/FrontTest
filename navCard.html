@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    #navBox {
+        box-sizing: border-box;
+        height: 200px;
+        width: 350px;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    #navUl {
+        display: flex;
+        position: relative;
+        top :1px;
+    }
+
+    #navUl li{
+        list-style: none;
+        border: 1px solid rgb(141, 139, 139);
+        padding: 10px;
+        height: 20px;
+        margin-right: 15px;
+        border-radius: 20% 20% 0 0;
+    }
+
+    #navBox div{
+        height: 150px;
+        width: 400px;
+        border: 1px solid rgb(141, 139, 139);
+        padding: 20px;
+        display: none;
+    }
+
+    #navUl li.active{
+        border-bottom-color: #fff;
+    }
+
+    #navBox div.active{
+        display:block;
+    }
+
+
+
+
+
+</style>
+<body>
+    <div id="navBox">
+        <ul id="navUl">
+            <li class="active">阅读</li>
+            <li>运动</li>
+            <li>音乐</li>
+        </ul>
+            <div class="active">阅读使我快乐</div>
+            <div>运动使我健康</div>
+            <div>音乐使我祥和</div> 
+    </div>
+</body>
+<script>
+    var navUl = document.getElementById('navUl');
+    var navLi = navUl.getElementsByTagName('li');
+
+    for (let i = 0; i < navLi.length; i++) {
+        let element = navLi[i];
+        element.onclick = function(){ changeNav(i);}
+    }
+
+
+    function changeNav(index){
+        
+        var navBox = document.getElementById('navBox');
+        var boxList = navBox.getElementsByTagName('div');
+
+        var navUl = document.getElementById('navUl');
+        var liList = navUl.getElementsByTagName('li');
+        
+        for (let i = 0; i < boxList.length; i++) {
+            const element = boxList[i];
+            element.className = '';
+        }
+        boxList[index].className = 'active';
+
+
+        for (let i = 0; i < liList.length; i++) {
+            const element = liList[i];
+            element.className = '';
+        }
+        
+        liList[index].className = 'active';
+    }
+
+
+</script>
+</html>
